@@ -999,6 +999,7 @@ const input = `27484   55634
 61316   42384
 70861   52220`;
 
+// Part 1
 const pairs = input.split("\n");
 
 let leftList = [];
@@ -1020,4 +1021,13 @@ for (let i = 0; i < leftList.length; i++) {
   total += difference;
 }
 
-console.log(total);
+console.log(total); // 2031679
+
+// Part 2
+let similarityScore = 0;
+for (let i = 0; i < leftList.length; i++) {
+  const count = rightList.filter((num) => num === leftList[i]).length;
+  similarityScore += leftList[i] * count;
+}
+
+console.log(similarityScore); // 19678534
